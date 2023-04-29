@@ -1,10 +1,10 @@
-import requests
-from bs4 import BeautifulSoup
 import time
 import os
 import re
+import requests
+from bs4 import BeautifulSoup
 
-for (root, directories, files) in os.walk('./올리브영'):
+for (root, directories, files) in os.walk('./상품'):
     for file in files:
         file_path = os.path.join(root, file)
         f = open(file_path, 'r')
@@ -41,28 +41,27 @@ for (root, directories, files) in os.walk('./올리브영'):
                     save = open('./상품/{0}/{1}.txt'.format(dirname,
                                 name), 'a', encoding='UTF-8')
 
-                    # save.write(item_brand)
-                    # save.write('\n')
-                    # save.write(item_name)
-                    # save.write('\n')
-                    # save.write(item_price)
-                    # save.write('\n')
+                    save.write(item_brand)
+                    save.write('\n')
+                    save.write(item_name)
+                    save.write('\n')
+                    save.write(item_price)
+                    save.write('\n')
 
                     item_main_pic = soup.find('img', id='mainImg')['src']
                     print(item_main_pic)
-                    save.write('\n MAIN IMG \n')
                     save.write(item_main_pic)
 
-                    # item_pic = soup.select(
-                    #     '.contEditor img')
-                    # for i in range(0, len(item_pic)):
-                    #     if (item_pic[i]):
-                    #         img = item_pic[i]['src']
-                    #         print(img)
-                    #         save.write(img)
-                    #         save.write('\n')
-                    #     else:
-                    #         break
+                    item_pic = soup.select(
+                        '.contEditor img')
+                    for i in range(0, len(item_pic)):
+                        if (item_pic[i]):
+                            img = item_pic[i]['src']
+                            print(img)
+                            save.write(img)
+                            save.write('\n')
+                        else:
+                            break
 
                 else:
                     print(response.status_code)
