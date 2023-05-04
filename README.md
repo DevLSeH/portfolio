@@ -1,5 +1,6 @@
 # web-crawling
 화장품 웹사이트에서 상품 정보를 크롤링하는 프로젝트
+예시 코드는 올리브영 html 구조를 참고함
 
 실행 순서
 1. crawling_item_url.py

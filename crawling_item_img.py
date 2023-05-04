@@ -36,6 +36,8 @@ for (root, directories, files) in os.walk('./상품/{}'.format(root_dir)):
                     continue
 
                 else:
+                    # 이미지 형식이 jpg가 아닌 경우 오류가 발생한다.
+                    # 해결 방법 제시 필요
                     path = base_path + '/' + item_name
                     item_path = path + '/' + \
                         '{0}_{1}.jpg'.format(item_name, count)
